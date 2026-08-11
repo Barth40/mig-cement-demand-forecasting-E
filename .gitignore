@@ -218,3 +218,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+models/schedule_informed_rf_8week.joblib
+data/processed/cement_demand_features.csv
+data/processed/cement_demand_features.parquet
