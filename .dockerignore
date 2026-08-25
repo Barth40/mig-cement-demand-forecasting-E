@@ -5,9 +5,10 @@ __pycache__
 .ipynb_checkpoints
 .pytest_cache
 
+
 notebooks
 reports
-dashboard
+dashboard/__pycache__
 tests
 
 data/raw

@@ -1,0 +1,27 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mig-cement-forecast-api:1.0
+    container_name: mig-cement-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.dashboard
+    image: mig-cement-dashboard:1.0
+    container_name: mig-cement-dashboard
+    restart: unless-stopped
+    environment:
+      API_BASE_URL: http://api:8000
+      DASHBOARD_HOST: 0.0.0.0
+      DASHBOARD_PORT: "8050"
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - "8050:8050"
